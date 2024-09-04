@@ -1,0 +1,4 @@
+tensorflow
+requests
+python-dotenv
+keras
