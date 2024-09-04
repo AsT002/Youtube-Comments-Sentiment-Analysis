@@ -24,7 +24,7 @@ if not os.path.isfile(model_path):
     print(f"Model ({model_path}) doesn't exist. Please run train_model.py first.")
     exit(1)
 
-# Retrieve API key and video ID from environment variables
+# Retrieve API key from environment variables
 api_key = os.getenv('API_KEY')
 video_id = input("Youtube Video ID: ")
 
