@@ -1,1 +1,22 @@
 .DS_Store
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Downloaded or generated data
+data/raw/
+data/processed/
+cache/
+
+# Trained artifacts and machine-readable run reports
+artifacts/
+reports/*.json
+*.keras
+*.joblib

@@ -1,0 +1,6 @@
+{
+  "primary_metric": "macro_f1",
+  "random_seed": 42,
+  "selection_data": ["TweetEval validation"],
+  "test_policy": "Each dataset test split may be opened once for the project; any existing final report globally seals it against later candidates."
+}

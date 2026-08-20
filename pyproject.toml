@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "youtube-comments-sentiment-analysis"
+version = "0.1.0"
+description = "Train and evaluate a three-class sentiment model for YouTube comments."
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+  "datasets>=2.16,<4",
+  "joblib>=1.3,<2",
+  "numpy>=1.24,<2",
+  "python-dotenv>=1,<2",
+  "requests>=2.31,<3",
+  "scikit-learn>=1.3,<1.6",
+  "urllib3>=1.26.20,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4,<9",
+  "ruff>=0.6,<1",
+]
+
+[project.scripts]
+sentiment-download = "youtube_sentiment.download_data:main"
+sentiment-prepare = "youtube_sentiment.prepare_data:main"
+sentiment-train-baseline = "youtube_sentiment.train_baseline:main"
+sentiment-train-svm = "youtube_sentiment.train_linear_svm:main"
+sentiment-validate = "youtube_sentiment.validate_candidates:main"
+sentiment-select = "youtube_sentiment.select_model:main"
+sentiment-error-analysis = "youtube_sentiment.error_analysis:main"
+sentiment-evaluate = "youtube_sentiment.evaluate:main"
+sentiment-analyze = "youtube_sentiment.analyze_video:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 140
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
